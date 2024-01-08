@@ -40,7 +40,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x655ABB96)
-F (.\ugly_ui.c)(0x657A5BCB)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\ugly_ui.o --omf_browse geneffect\ugly_ui.crf --depend geneffect\ugly_ui.d)
+F (.\ugly_ui.c)(0x657BB09C)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\ugly_ui.o --omf_browse geneffect\ugly_ui.crf --depend geneffect\ugly_ui.d)
 I (../self_driver/LCD/driver_lcd.h)(0x65044AE7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5F63877C)
 I (../self_driver/LCD/driver_oled.h)(0x65044AE7)
@@ -82,7 +82,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x655ABB96)
-I (../audio_process/effect_chain.h)(0x6576C2EF)
+I (../audio_process/effect_chain.h)(0x657ABAFC)
 I (../Core/Inc/i2c.h)(0x65668B23)
 I (../Core/Inc/main.h)(0x6576BD46)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6560C376)
@@ -94,7 +94,7 @@ I (../Core/Inc/gpio.h)(0x655B4212)
 I (../Core/Inc/spi.h)(0x6576BA92)
 I (../self_driver/spi_ldc/gif.h)(0x65790A4A)
 I (../self_driver/spi_ldc/pic.h)(0x65795402)
-F (../Core/Src/main.c)(0x657967FF)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\main.o --omf_browse geneffect\main.crf --depend geneffect\main.d)
+F (../Core/Src/main.c)(0x657BB18E)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\main.o --omf_browse geneffect\main.crf --depend geneffect\main.d)
 I (../Core/Inc/main.h)(0x6576BD46)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x655ABB96)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x6576BA93)
@@ -147,7 +147,7 @@ I (../SYSTEM/delay/delay.h)(0x655C910E)
 I (../SYSTEM/sys/sys.h)(0x655DBEB4)
 I (../self_driver/WM8978/wm8978.h)(0x655C910E)
 I (../audio_process/recorder.h)(0x655D31E9)
-I (../audio_process/effect_chain.h)(0x6576C2EF)
+I (../audio_process/effect_chain.h)(0x657ABAFC)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6560C376)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63877C)
 I (../SYSTEM/malloc/malloc.h)(0x65668A94)
@@ -315,7 +315,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x655ABB96)
-I (../audio_process/effect_chain.h)(0x6576C2EF)
+I (../audio_process/effect_chain.h)(0x657ABAFC)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6560C376)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63878A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63877C)
@@ -1806,14 +1806,14 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x655ABB96)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x655ABB96)
-I (..\audio_process\effect_chain.h)(0x6576C2EF)
+I (..\audio_process\effect_chain.h)(0x657ABAFC)
 I (../Core/Inc/i2c.h)(0x65668B23)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6560C376)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63878A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63877C)
 I (../SYSTEM/malloc/malloc.h)(0x65668A94)
 F (.\boost_pedal.c)(0x65601889)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\boost_pedal.o --omf_browse geneffect\boost_pedal.crf --depend geneffect\boost_pedal.d)
-I (../audio_process/effect_chain.h)(0x6576C2EF)
+I (../audio_process/effect_chain.h)(0x657ABAFC)
 I (../Core/Inc/i2c.h)(0x65668B23)
 I (../Core/Inc/main.h)(0x6576BD46)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x655ABB96)
@@ -1856,8 +1856,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x655ABB96)
 I (../Middlewares/ST/ARM/DSP/Inc/arm_math.h)(0x6560C376)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x5F63878A)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x5F63877C)
-F (.\tuner.c)(0x6579656A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\tuner.o --omf_browse geneffect\tuner.crf --depend geneffect\tuner.d)
-I (../audio_process/effect_chain.h)(0x6576C2EF)
+F (.\tuner.c)(0x657BB0E3)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\tuner.o --omf_browse geneffect\tuner.crf --depend geneffect\tuner.d)
+I (../audio_process/effect_chain.h)(0x657ABAFC)
 I (../Core/Inc/i2c.h)(0x65668B23)
 I (../Core/Inc/main.h)(0x6576BD46)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x655ABB96)
@@ -1904,7 +1904,7 @@ I (../SYSTEM/malloc/malloc.h)(0x65668A94)
 I (../Core/Inc/usart.h)(0x655C69A3)
 I (../self_driver/LCD/driver_oled.h)(0x65044AE7)
 F (..\audio_process\reverb.c)(0x657671A2)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 -Otime --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../self_driver/I2S -I ../self_driver/IIC -I ../self_driver/LCD -I ../self_driver/text -I ../self_driver/WM8978 -I ../audio_process -I ../SYSTEM/delay -I ../SYSTEM/sys -I ../FWLIB/inc -I ../Middlewares/ST/ARM/DSP/Inc -I ../SYSTEM/malloc -I ../self_driver/spi_ldc-I.\RTE\_geneffect-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include-IC:\Users\Thinkpad\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="532" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_CM4 -D__FPU_PRESENT="1"-o geneffect\reverb.o --omf_browse geneffect\reverb.crf --depend geneffect\reverb.d)
-I (..\audio_process\effect_chain.h)(0x6576C2EF)
+I (..\audio_process\effect_chain.h)(0x657ABAFC)
 I (../Core/Inc/i2c.h)(0x65668B23)
 I (../Core/Inc/main.h)(0x6576BD46)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x655ABB96)

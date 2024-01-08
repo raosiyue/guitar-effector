@@ -20,8 +20,8 @@ typedef struct FunctionMode_e{
 	uint8_t boost_state;
 	uint8_t od_state;
 	uint8_t reverb_state;
-	uint16_t std_freq;
-	uint16_t freq;
+	float std_freq;
+	float freq;
 	uint8_t  string_name;
 }FunctionMode;
 

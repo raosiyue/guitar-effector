@@ -51,6 +51,9 @@ float FFT_Calculation(float *DATA, int num)
     static uint8_t init_flag = 0;
 		float maxid = 0;
 		float maxmag = 0;
+		float energy = 0;
+		float search_cnt = 0;
+		float threshould = 0;
 		int i = 0;
 		int window_size = 40.0 / freq_scale ;
 		float valid_freq[10] = {0.0};
@@ -70,7 +73,17 @@ float FFT_Calculation(float *DATA, int num)
 		memcpy(header->data, (const uint8_t*)array_arm_cmplx_mag, sizeof(float) *FFT_LEN / 2);
 		
 		for (i = window_size; i < FFT_LEN / 2 - window_size; i++){
-			if ((array_arm_cmplx_mag[i] > 5)){
+			energy += array_arm_cmplx_mag[i];
+			search_cnt += 1.0;
+		}
+		
+		energy = energy / search_cnt;
+		threshould = energy * 10;
+		if (threshould < 2.0) {
+			threshould = 2.0;
+		}
+		for (i = window_size; i < FFT_LEN / 2 - window_size; i++){
+			if ((array_arm_cmplx_mag[i] > threshould)){
 				int larger_cnt = 0;
 				int j = 0;
 				float sum_41 = 0 ;
@@ -184,14 +197,14 @@ void tuner_function(float inputsig, uint16_t switch_tap){
 	
 	if (fft_tuner_buffer_keeper(4 * inputsig, &temp_freq)){
 			fftcnt++;
-		  freq = freq * 0.0 + 1 * (temp_freq * freq_scale);
+		  freq = freq * 0.2 + 0.8 * (temp_freq * freq_scale);
 		
 			//LCD_DrawLine(freq *0.5, 0, freq *0.5, 300);
 			////LCD_Clear(WHITE);
 			//Show_Str(30,230,240,16,"frequency : ",16,0);
 			//LCD_ShowxNum(30,250,freq, 4,16,0X80);
 			//LCD_ShowxNum(30,270,fftcnt,4,16,0X80);
-			ret = check_witch_string(freq_list, freq);
+			ret = check_witch_string(freq_list, temp_freq * freq_scale);
 			if (ret == -1){
 				//function_mode.tunner_state = 1;
 				function_mode.string_name = 'N';

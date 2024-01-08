@@ -70,6 +70,12 @@ void spi_lcd_handle(){
 							//clear last line
 							LCD_DrawLine(line_startx,line_starty,line_endx,line_endy,BLACK);
 							diff_freq = 5 * (function_mode.std_freq - function_mode.freq);
+							if (diff_freq > 40){
+								diff_freq = 40;
+							}
+							if (diff_freq < -40){
+								diff_freq = -40;
+							}
 							line_startx = centerx - 40 * sin((diff_freq) * 3.14 / 180);
 							line_starty = centery - 40 * cos((diff_freq) * 3.14 / 180);
 							line_endx = centerx - 140 * sin((diff_freq) * 3.14 / 180);
