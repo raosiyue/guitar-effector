@@ -714,6 +714,11 @@
               <FileType>1</FileType>
               <FilePath>..\audio_process\ugly_ui.c</FilePath>
             </File>
+            <File>
+              <FileName>lowpass_filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lowpass_filter.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

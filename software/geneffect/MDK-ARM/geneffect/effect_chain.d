@@ -46,4 +46,5 @@ geneffect/effect_chain.o: ..\audio_process\effect_chain.c \
   ..\audio_process\effect_chain.h \
   ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
-  ..\my_driver\mmc\malloc.h
+  ..\my_driver\mmc\malloc.h ..\audio_process\lowpass_filter.h \
+  ..\audio_process\reverb.h

@@ -3,7 +3,8 @@
 #include "string.h"
 #include "malloc.h"
 #include "arm_math.h"
-
+#include "lowpass_filter.h"
+#include "reverb.h"
 #define EFFECT_BUF_LEN 200
  /*
 AudioData rxdmabuffer[EFFECT_BUF_LEN];
@@ -110,13 +111,13 @@ static inline void effect_process(int index){
 		if (g_effect_controller.od_switch){
 			tempin[0] = g_effect_controller.od_drive * -rxfloatbuffer[rxfloatbuffer_idx].right_audio;
 			arm_vexp_f32(tempin, temout, 1);
-			rxfloatbuffer[rxfloatbuffer_idx].right_audio = g_effect_controller.od_level * (-1 + (2 / (1 + temout[0])));
+			rxfloatbuffer[rxfloatbuffer_idx].right_audio = odlpf.calculate(&odlpf, g_effect_controller.od_level * (-1 + (2 / (1 + temout[0]))));
 		}
 		/*od code end*/
 		
 		if (g_effect_controller.reberb_switch){
-			Do_Reverb(&rxfloatbuffer[rxfloatbuffer_idx].right_audio);
-			rxfloatbuffer[rxfloatbuffer_idx].left_audio = rxfloatbuffer[rxfloatbuffer_idx].right_audio;
+			rxfloatbuffer[rxfloatbuffer_idx].right_audio = doreverb_new(rxfloatbuffer[rxfloatbuffer_idx].right_audio);
+			rxfloatbuffer[rxfloatbuffer_idx].left_audio = -rxfloatbuffer[rxfloatbuffer_idx].right_audio;
 		}
 	}
 	//HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10, 0);
@@ -152,5 +153,5 @@ void init_input_output_confit(){
 	//ret = HAL_I2S_Transmit_DMA(&hi2s2, i2soutbuf1, EFFECT_BUF_LEN);
 	//hi2s2.State
 	ret = HAL_I2SEx_TransmitReceive_DMA(&hi2s3, (uint16_t*)txdmabuffer, (uint16_t*)rxdmabuffer, EFFECT_BUF_LEN *2);
-	reverb_init();
+	reverb_init_new();
 }

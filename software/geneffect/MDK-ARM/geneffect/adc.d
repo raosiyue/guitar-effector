@@ -44,4 +44,5 @@ geneffect/adc.o: ..\Core\Src\adc.c ..\Core\Inc\adc.h ..\Core\Inc\main.h \
   ..\Drivers\STM32H7xx_HAL_Driver\Inc\stm32h7xx_hal_uart_ex.h \
   ..\audio_process\effect_chain.h \
   ..\Middlewares\ST\ARM\DSP\Inc\arm_math.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  ..\audio_process\lowpass_filter.h

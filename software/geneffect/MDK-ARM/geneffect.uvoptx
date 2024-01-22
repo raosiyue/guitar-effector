@@ -155,6 +155,11 @@
           <WinNumber>2</WinNumber>
           <ItemText>cfbuf0</ItemText>
         </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>odlpf</ItemText>
+        </Ww>
       </WatchWindow2>
       <MemoryWindow1>
         <Mm>
@@ -879,6 +884,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\audio_process\ugly_ui.c</PathWithFileName>
       <FilenameWithoutPath>ugly_ui.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>6</GroupNumber>
+      <FileNumber>52</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>1</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\lowpass_filter.c</PathWithFileName>
+      <FilenameWithoutPath>lowpass_filter.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

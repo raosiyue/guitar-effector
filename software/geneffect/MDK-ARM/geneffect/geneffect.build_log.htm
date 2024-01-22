@@ -22,16 +22,30 @@ Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 F:\geneffetct\guitar-effector\software\geneffect\MDK-ARM\geneffect.uvprojx
-Project File Date:  01/10/2024
+Project File Date:  01/18/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14.1', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'geneffect'
-compiling wm8978.c...
+../audio_process/reverb.c(1): warning: In file included from...
+../audio_process/effect_chain.h(4): warning: In file included from...
+../Middlewares/ST/ARM/DSP/Inc\arm_math.h(319): warning: In file included from...
+../Drivers/CMSIS/Include\core_cm7.h(93): warning: "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)" [-W#warnings]
+      #warning "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+       ^
+../audio_process/reverb.c(8): warning: implicit declaration of function 'mymalloc' is invalid in C99 [-Wimplicit-function-declaration]
+        filter->delay_buffer = (float*)mymalloc(0, sizeof(float) *delaylenmax);
+                                       ^
+../audio_process/reverb.c(206): warning: implicit declaration of function 'mymalloc' is invalid in C99 [-Wimplicit-function-declaration]
+        cfbuf0 = (float*)mymalloc(0, sizeof(float) *l_CB0);
+                         ^
+3 warnings generated.
+compiling reverb.c...
+compiling adc.c...
 linking...
-Program Size: Code=48328 RO-data=431136 RW-data=212 ZI-data=1689172  
+Program Size: Code=49472 RO-data=431232 RW-data=456 ZI-data=1689080  
 FromELF: creating hex file...
-"geneffect\geneffect.axf" - 0 Error(s), 0 Warning(s).
+"geneffect\geneffect.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -59,9 +73,9 @@ Package Vendor: Keil
       Include file:  CMSIS\Core\Include\tz_context.h
 
    * Component: ARM::CMSIS:DSP:Library:1.8.0
-      Include file:  CMSIS\DSP\Include\arm_math.h
       Library file:  CMSIS\DSP\Lib\ARM\arm_cortexM7lfsp_math.lib
-Build Time Elapsed:  00:00:01
+      Include file:  CMSIS\DSP\Include\arm_math.h
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

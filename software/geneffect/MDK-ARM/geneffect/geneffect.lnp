@@ -50,6 +50,7 @@
 "geneffect\reverb.o"
 "geneffect\tuner.o"
 "geneffect\ugly_ui.o"
+"geneffect\lowpass_filter.o"
 "C:\Users\Thinkpad\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Lib\ARM\arm_cortexM7lfsp_math.lib"
 --strict --scatter "geneffect\geneffect.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols

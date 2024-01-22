@@ -22,7 +22,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "effect_chain.h"
-
+#include "lowpass_filter.h"
 uint16_t adc1_dma_buf[16] __attribute__((section(".bss.ARM.__at_0X30020000")));	
 uint16_t adc2_dma_buf[16] __attribute__((section(".bss.ARM.__at_0X30020020")));
 float nob_list[8];
@@ -32,9 +32,12 @@ void update_controller(){
 		g_effect_controller.boost_level = 1.0 + nob_list[0] * 6.1e-5;
 		g_effect_controller.od_drive = 1 + nob_list[2] * 0.000763;
 		g_effect_controller.od_level = 0.1 + nob_list[1] * 1.373e-5;
-		
+		g_effect_controller.od_tone = 1000 +  nob_list[3] * 0.076;
+		odlpf.update_para(&odlpf, g_effect_controller.od_tone);
 		g_effect_controller.reverb_mix = nob_list[4] * 1.526e-5;
 		g_effect_controller.reverb_time = nob_list[5] * 1.526e-5;
+		g_effect_controller.delay_mix = nob_list[6] / 65535;
+		g_effect_controller.delay_time = nob_list[7] / 65535;
 		if (tap_list[3] > 10000){
 				g_effect_controller.boost_switch = 1;
 				function_mode.boost_state = 1;
