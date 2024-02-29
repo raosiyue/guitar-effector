@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -18,32 +18,22 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "bdma.h"
 #include "dma.h"
-#include "i2c.h"
 #include "i2s.h"
 #include "spi.h"
-#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
-#include "fsmc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdarg.h>
-#include <string.h>
-#include "delay.h"  
-#include "usart.h"   
-#include "wm8978.h"	 
-#include "recorder.h"
-#include "effect_chain.h"
-#include "arm_math.h"
-#include "core_cm4.h"
-#include "malloc.h"
-#include "driver_lcd.h"
-#include "driver_oled.h"
-#include "lcd.h"
 #include "lcd_init.h"
-#define NOSAVETIME 1
+#include "lcd.h"
+#include "malloc.h"
+#include "wm8978.h"
+#include "effect_chain.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,23 +59,14 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern AdInfo* adinfoget;
-char logbuf[256];
-void usblog(const char* format, ...){
-	va_list args;
-  va_start(args,format);
-  vsprintf(logbuf,format,args); // ?vsprintf
-  va_end(args);
-	//CDC_Transmit_FS((uint8_t*)logbuf, strlen(logbuf));
-	HAL_UART_Transmit(&huart1, logbuf, strlen(logbuf), 100);
-}
-extern Header* header;
+
 /* USER CODE END 0 */
 
 /**
@@ -97,6 +78,9 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
+
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -110,69 +94,74 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+/* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
+
   /* USER CODE BEGIN SysInit */
-	HAL_Delay(500);
+	HAL_Delay(1000);
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_I2C1_Init();
-  MX_USART1_UART_Init();
-  MX_I2S2_Init();
-  MX_FSMC_Init();
-  MX_I2C3_Init();
-  MX_TIM3_Init();
-  MX_SPI1_Init();
+  MX_BDMA_Init();
+  MX_ADC3_Init();
+  MX_I2S1_Init();
+  MX_ADC1_Init();
+  MX_UART5_Init();
+  MX_SPI4_Init();
   /* USER CODE BEGIN 2 */
-	HAL_Delay(500);
-	//delay_init(168);  //初始化延时函数
-	
-		
-	my_mem_init(SRAMIN);		//初始化内部内存池
-	my_mem_init(SRAMEX);		//初始化外部内存池
-	//my_mem_init(SRAMCCM);		//初始化CCM内存池
-	
-	WM8978_Init();				//初始化WM8978
-	WM8978_HPvol_Set(63,63);	//耳机音量设置
-	WM8978_SPKvol_Set(0);		//喇叭音量设置
-	WM8978_ADDA_Cfg(1,1);		//开启ADC
-	WM8978_Input_Cfg(0,1,0);	//开启输入通道(MIC&LINE IN)
-	WM8978_Output_Cfg(1,0);		//开启BYPASS输出 
-	WM8978_MIC_Gain(46);		//MIC增益设置 
-	
-	WM8978_I2S_Cfg(2,0);		//飞利浦标准,16位数据长度
-	
-	LCD_Init();
-	LCD_Clear();
-	
-	SPI_LCD_Init();//LCD初始化
-	LCD_Fill(0,0,LCD_W,LCD_H,BLACK);
-
-	init_input_output_confit();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-	int cnt = 0;
-
-while (1)
+	
+	//init screen
+	HAL_Delay(1000);
+	//HAL_I2S_MspDeInit(&hi2s3);
+	uint8_t pin0_state = 0;
+	SPI_LCD_Init();//LCD???
+	SPI_LCD_Init();//LCD???
+	SPI_LCD_Init();//LCD???
+	LCD_Fill(0,0,LCD_W,LCD_H,WHITE);
+	//HAL_Delay(1000);
+	//MX_I2S3_Init();
+	uint8_t frameid = 0;
+	
+	//init memory manager
+	my_mem_init(0);
+	//my_mem_init(1);
+	
+	//start adc dma capture	
+	init_adc_dma();
+	//init 8978
+	WM8978_Init();				//???WM8978
+	WM8978_HPvol_Set(63,63);	//??????
+	WM8978_SPKvol_Set(0);		//??????
+	WM8978_ADDA_Cfg(1,1);		//??ADC
+	WM8978_Input_Cfg(0,1,0);	//??????(MIC&LINE IN)
+	WM8978_Output_Cfg(1,0);		//??BYPASS?? 
+	WM8978_MIC_Gain(46);		//MIC???? 
+	
+	WM8978_I2S_Cfg(2,0);		//?????,16?????
+	
+	MX_I2S1_Init();
+	
+	init_input_output_confit();
+	//HAL_Delay(500);
+	//MX_I2S3_Init();
+	//init_dragonfly_reverb_hall(48000);
+  while (1)
   {
+	  //LCD_ShowIntNum(0, 0, frameid,4,WHITE,BLACK, 16);
+		//LCD_ShowPictureBinary(40,150,152,152,taikongren[frameid]);
 		
-		cnt++;
-		
-		//HAL_Delay(100);
-		//oled_handle();
 		spi_lcd_handle();
-		if (header != 0x00){
-			if (header->datalen <= 8192){
-				//HAL_UART_Transmit_DMA(&huart1, (const uint8_t*)header, 12 + header->datalen);
-			}
-		}
-
-		
+		update_controller();
+		//int reverb_type = (int)g_effect_controller.delay_mix;
+		//int reverb_type_sub = (int)g_effect_controller.delay_time;
+		//set_dragonfly_reverb_para(reverb_type, reverb_type_sub);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -189,22 +178,38 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
+  /** Supply configuration update enable
+  */
+  HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
+
   /** Configure the main internal regulator output voltage
   */
-  __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
+
+  __HAL_RCC_SYSCFG_CLK_ENABLE();
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
+
+  while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_DIV1;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 8;
-  RCC_OscInitStruct.PLL.PLLN = 336;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.PLL.PLLM = 3;
+  RCC_OscInitStruct.PLL.PLLN = 120;
+  RCC_OscInitStruct.PLL.PLLP = 2;
+  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLR = 2;
+  RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
+  RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
+  RCC_OscInitStruct.PLL.PLLFRACN = 0;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -213,13 +218,35 @@ void SystemClock_Config(void)
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
+                              |RCC_CLOCKTYPE_D3PCLK1|RCC_CLOCKTYPE_D1PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
+  RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/**
+  * @brief Peripherals Common Clock Configuration
+  * @retval None
+  */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+  */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_CKPER;
+  PeriphClkInitStruct.CkperClockSelection = RCC_CLKPSOURCE_HSI;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }

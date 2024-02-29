@@ -1,8 +1,8 @@
 #ifndef EFFECT_CHAIN_H
 #define EFFECT_CHAIN_H
-#include "i2c.h"
+
 #include "arm_math.h"
-#include "core_cm4.h"
+
 typedef struct AudioData_s{
 	int16_t left_audio;
 	int16_t right_audio;
@@ -45,6 +45,11 @@ typedef struct Effect_Controller_s{
 	float reverb_mix;
 	float delay_time;
 	float delay_mix;
+	float boost_drive;
+	float od_tone_treble;
+	float od_tone_bass;
+	float boost_tone_bass;
+	float boost_tone_treble;
 }EffectController;
 
 extern volatile EffectController g_effect_controller;

@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -27,7 +27,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
+#include "stm32h7xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -57,16 +57,37 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define SCREEN_CS_Pin GPIO_PIN_6
-#define SCREEN_CS_GPIO_Port GPIOF
-#define LED1_Pin GPIO_PIN_10
-#define LED1_GPIO_Port GPIOF
-#define SCREEN_BLK_Pin GPIO_PIN_4
-#define SCREEN_BLK_GPIO_Port GPIOA
-#define SCREEN_RES_Pin GPIO_PIN_4
-#define SCREEN_RES_GPIO_Port GPIOC
-#define SCREEN_DC_Pin GPIO_PIN_5
-#define SCREEN_DC_GPIO_Port GPIOC
+#define SPI4_CS_Pin GPIO_PIN_3
+#define SPI4_CS_GPIO_Port GPIOE
+#define SPI4_DC_Pin GPIO_PIN_4
+#define SPI4_DC_GPIO_Port GPIOE
+#define SPI4_RES_Pin GPIO_PIN_13
+#define SPI4_RES_GPIO_Port GPIOC
+#define I2C_CODEC_SCK_Pin GPIO_PIN_5
+#define I2C_CODEC_SCK_GPIO_Port GPIOC
+#define I2C_CODEC_SDA_Pin GPIO_PIN_0
+#define I2C_CODEC_SDA_GPIO_Port GPIOB
+#define TAP0_Pin GPIO_PIN_13
+#define TAP0_GPIO_Port GPIOF
+#define TAP0_EXTI_IRQn EXTI15_10_IRQn
+#define TAP1_Pin GPIO_PIN_14
+#define TAP1_GPIO_Port GPIOF
+#define TAP1_EXTI_IRQn EXTI15_10_IRQn
+#define TAP2_Pin GPIO_PIN_15
+#define TAP2_GPIO_Port GPIOF
+#define TAP2_EXTI_IRQn EXTI15_10_IRQn
+#define LED4_Pin GPIO_PIN_8
+#define LED4_GPIO_Port GPIOA
+#define LED3_Pin GPIO_PIN_9
+#define LED3_GPIO_Port GPIOA
+#define LED2_Pin GPIO_PIN_10
+#define LED2_GPIO_Port GPIOA
+#define LED1_Pin GPIO_PIN_11
+#define LED1_GPIO_Port GPIOA
+#define LED0_Pin GPIO_PIN_12
+#define LED0_GPIO_Port GPIOA
+#define SPI4_BLK_Pin GPIO_PIN_9
+#define SPI4_BLK_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

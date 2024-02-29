@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2023 STMicroelectronics.
+  * Copyright (c) 2024 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -39,7 +39,10 @@ extern "C" {
 void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+extern uint8_t tap0_state;
+extern uint8_t tap1_state;
+extern uint8_t tap2_state;
+extern uint8_t tap_tunner;
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
