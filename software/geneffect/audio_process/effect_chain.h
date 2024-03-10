@@ -50,6 +50,9 @@ typedef struct Effect_Controller_s{
 	float od_tone_bass;
 	float boost_tone_bass;
 	float boost_tone_treble;
+	float tremolo_rate;
+	float tremolo_depth;
+	float tremolo_type;
 }EffectController;
 
 extern volatile EffectController g_effect_controller;
@@ -61,4 +64,5 @@ void reverb_init();
 void oled_handle();
 void spi_lcd_handle();
 void uninit_tuner();
+
 #endif

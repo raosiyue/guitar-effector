@@ -46,6 +46,9 @@ void update_controller(){
 		g_effect_controller.delay_time = adc1_dma_buf[8] / (65535 / 4);
 		g_effect_controller.boost_tone_bass = adc1_dma_buf[3];
 		g_effect_controller.boost_tone_treble = adc1_dma_buf[4];
+		g_effect_controller.tremolo_rate = g_effect_controller.reverb_mix * 5;
+		g_effect_controller.tremolo_depth = g_effect_controller.reverb_time * 0.5;
+		g_effect_controller.tremolo_type = adc1_dma_buf[7] / (65535 / 2);
 		if (tap0_state > 0){
 				g_effect_controller.boost_switch = 1;
 				function_mode.boost_state = 1;

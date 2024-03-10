@@ -5,6 +5,7 @@
 #include "arm_math.h"
 #include "lowpass_filter.h"
 #include "reverb.h"
+#include "tremolo.h"
 //#include "dragonfly_reverb_hall.h"
 #define EFFECT_BUF_LEN 200
  /*
@@ -105,7 +106,7 @@ static inline void effect_process(int index){
 	uint32_t rxfloatbuffer_idx = index;
 	
 	//pre_ad_calculation(&rxdmabuffer[index], &rxfloatbuffer[rxfloatbuffer_idx]);
-	rxfloatbuffer[rxfloatbuffer_idx].right_audio = (rxdmabuffer[index].right_audio - 7475)/ 32768.0;
+	rxfloatbuffer[rxfloatbuffer_idx].right_audio = (rxdmabuffer[index].left_audio - 7475)/ 32768.0;
 	//HAL_GPIO_WritePin(GPIOF, GPIO_PIN_10, 1);
 	
 	if (g_effect_controller.tune_switch){
@@ -132,7 +133,11 @@ static inline void effect_process(int index){
 		/*od code end*/
 		
 		if (g_effect_controller.reberb_switch){
-			rxfloatbuffer[rxfloatbuffer_idx].right_audio = doreverb_new(rxfloatbuffer[rxfloatbuffer_idx].right_audio);
+					int tremolotype = g_effect_controller.tremolo_type;
+					//rxfloatbuffer[rxfloatbuffer_idx].right_audio = doreverb_new(rxfloatbuffer[rxfloatbuffer_idx].right_audio);
+					rxfloatbuffer[rxfloatbuffer_idx].right_audio *= update_tremolo(g_effect_controller.tremolo_rate, 
+					g_effect_controller.tremolo_depth, 
+					(TremoloType)tremolotype);
 		}
 	}
 	HAL_GPIO_WritePin(LED1_GPIO_Port , LED1_Pin, 1);
